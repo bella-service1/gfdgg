@@ -136,6 +136,12 @@
       table-layout: fixed;
     }
 
+    .item-col { width: 44%; }
+    .qty-col { width: 10%; }
+    .price-col { width: 16%; }
+    .total-col { width: 18%; }
+    .delete-col { width: 12%; }
+
     th, td {
       border: 1px solid #d4af37;
       padding: 10px;
@@ -243,8 +249,8 @@
       flex: 1;
       min-width: 0;
       width: 100%;
-      padding: 10px 8px;
-      font-size: 14px;
+      padding: 10px 6px;
+      font-size: 13px;
       border: none;
       border-radius: 0;
       background: transparent;
@@ -252,10 +258,10 @@
     }
 
     .item-combo select {
-      width: 95px;
-      min-width: 95px;
-      padding: 10px 8px;
-      font-size: 13px;
+      width: 85px;
+      min-width: 85px;
+      padding: 10px 5px;
+      font-size: 12px;
       border: none;
       border-right: 1px solid #d4af37;
       border-radius: 0;
@@ -349,14 +355,16 @@
         font-family: Arial, sans-serif !important;
       }
 
-      .summary-box {
-        background: #fffaf0 !important;
-      }
-
       table {
         width: 100% !important;
         table-layout: fixed !important;
       }
+
+      .item-col { width: 46% !important; }
+      .qty-col { width: 9% !important; }
+      .price-col { width: 15% !important; }
+      .total-col { width: 18% !important; }
+      .delete-col { width: 12% !important; }
 
       th, td {
         padding: 5px !important;
@@ -368,12 +376,25 @@
         padding: 6px !important;
       }
 
+      .item-combo select {
+        width: 75px !important;
+        min-width: 75px !important;
+        font-size: 9px !important;
+        padding: 5px 2px !important;
+      }
+
+      .item-combo input {
+        font-size: 10px !important;
+        padding: 5px 3px !important;
+      }
+
       .summary-grid {
         grid-template-columns: repeat(4, 1fr) !important;
         gap: 6px !important;
       }
 
       .summary-box {
+        background: #fffaf0 !important;
         padding: 7px !important;
         font-size: 11px !important;
       }
@@ -471,6 +492,14 @@
     <h3>بيانات الفاتورة</h3>
 
     <table>
+      <colgroup>
+        <col class="item-col">
+        <col class="qty-col">
+        <col class="price-col">
+        <col class="total-col">
+        <col class="delete-col">
+      </colgroup>
+
       <thead>
         <tr>
           <th>الصنف</th>
@@ -480,6 +509,7 @@
           <th>حذف</th>
         </tr>
       </thead>
+
       <tbody id="tableBody"></tbody>
     </table>
 
@@ -581,15 +611,19 @@
               <input type="text" class="item-input" placeholder="اختر أو اكتب الصنف">
             </div>
           </td>
+
           <td>
             <select class="qty-select" onchange="calculateRow(this)">
               ${numbersOptions(50)}
             </select>
           </td>
+
           <td>
             <input type="number" min="0" placeholder="السعر" oninput="calculateRow(this)">
           </td>
+
           <td class="rowTotal">0</td>
+
           <td>
             <button type="button" class="btn-delete" onclick="removeRow(this)">✖</button>
           </td>
