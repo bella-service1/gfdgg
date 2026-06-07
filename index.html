@@ -111,6 +111,13 @@
       color: #111111;
     }
 
+    .phone-input {
+      direction: ltr;
+      text-align: center;
+      letter-spacing: 0;
+      font-family: Arial, sans-serif;
+    }
+
     input::placeholder,
     textarea::placeholder {
       color: #888888;
@@ -333,6 +340,15 @@
         background: #ffffff !important;
       }
 
+      .phone-input {
+        direction: ltr !important;
+        text-align: center !important;
+        font-size: 10px !important;
+        padding: 5px 2px !important;
+        letter-spacing: 0 !important;
+        font-family: Arial, sans-serif !important;
+      }
+
       .summary-box {
         background: #fffaf0 !important;
       }
@@ -448,7 +464,7 @@
 
       <div class="field">
         <label>رقم الجوال</label>
-        <input type="tel" placeholder="05xxxxxxxx">
+        <input type="tel" class="phone-input" placeholder="05xxxxxxxx" maxlength="10">
       </div>
     </div>
 
@@ -627,17 +643,19 @@
       addRow();
 
       const today = new Date().toISOString().split('T')[0];
-      const dateInput = document.querySelector('input[type="date"]');
+      const dateInputs = document.querySelectorAll('input[type="date"]');
 
-      dateInput.value = today;
-      dateInput.disabled = true;
+      if (dateInputs[0]) {
+        dateInputs[0].value = today;
+        dateInputs[0].disabled = true;
 
-      const hiddenInput = document.createElement("input");
-      hiddenInput.type = "hidden";
-      hiddenInput.name = "edit_date";
-      hiddenInput.value = today;
+        const hiddenInput = document.createElement("input");
+        hiddenInput.type = "hidden";
+        hiddenInput.name = "edit_date";
+        hiddenInput.value = today;
 
-      dateInput.parentNode.appendChild(hiddenInput);
+        dateInputs[0].parentNode.appendChild(hiddenInput);
+      }
     };
   </script>
 
