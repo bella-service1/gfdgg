@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-<meta name="viewport" content="width=1200">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MOON LIGHT</title>
 
   <style>
@@ -14,7 +14,6 @@
       margin: 0;
       padding: 0;
       color: #111111;
-      min-width: 1200px;
     }
 
     .hero {
@@ -61,9 +60,8 @@
     }
 
     .container {
-     .container {
-  width: 1100px;
-  min-width: 1100px;
+      width: 1100px;
+      max-width: calc(100% - 24px);
       margin: 0 auto 24px;
       background: #ffffff;
       padding: 24px;
@@ -128,6 +126,7 @@
       border-collapse: collapse;
       margin-top: 10px;
       background: #ffffff;
+      table-layout: fixed;
     }
 
     th, td {
@@ -147,10 +146,6 @@
       margin: 0;
       font-size: 14px;
       padding: 10px 8px;
-    }
-
-    td input[type="number"] {
-      min-width: 140px;
     }
 
     .actions {
@@ -261,16 +256,7 @@
       color: #111111;
       cursor: pointer;
     }
-@media screen and (max-width: 1200px) {
-  body {
-    min-width: 1200px;
-    zoom: 0.75;
-  }
 
-  .container {
-    min-width: 1100px;
-  }
-}
     @page {
       size: A4 portrait;
       margin: 6mm;
@@ -278,71 +264,110 @@
 
     @media print {
       html, body {
-        width: 100%;
-        background: #fff !important;
-        color: #000 !important;
-      }
-
-      body {
+        width: 210mm !important;
+        min-width: 0 !important;
         margin: 0 !important;
         padding: 0 !important;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
+        background: #ffffff !important;
+        color: #111111 !important;
+        overflow: visible !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
       }
 
       .hero {
-        height: auto !important;
-        background: #fff !important;
-        border: none !important;
-        margin: 0 0 6px !important;
+        height: 80px !important;
+        margin-bottom: 4px !important;
+        border-bottom: 2px solid #d4af37 !important;
       }
 
       .hero::after {
-        display: none !important;
+        display: block !important;
+        background: linear-gradient(90deg, #b8860b, #f1d36b, #b8860b) !important;
       }
 
       .title-under-header {
-        color: #000 !important;
-        font-size: 24px !important;
-        margin: 0 0 4px !important;
+        color: #111111 !important;
+        font-size: 22px !important;
+        margin: 4px 0 2px !important;
       }
 
       .subtitle {
-        color: #000 !important;
-        font-size: 13px !important;
-        margin: 0 0 12px !important;
+        color: #555555 !important;
+        font-size: 12px !important;
+        margin: 0 0 8px !important;
       }
 
       .container {
         width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
         margin: 0 !important;
-        padding: 8px !important;
-        background: #fff !important;
+        padding: 6px !important;
+        border: 1px solid #d4af37 !important;
         box-shadow: none !important;
-        border: none !important;
         border-radius: 0 !important;
-        transform: scale(0.82);
-        transform-origin: top center;
       }
 
-      h3, th, .summary-box, .final-box {
-        background: #e9e9e9 !important;
-        color: #000 !important;
-        border: 1px solid #000 !important;
+      .grid {
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 6px !important;
       }
 
-      input, select, textarea, table, td {
-        background: #fff !important;
-        color: #000 !important;
-        border-color: #000 !important;
+      h3, th, .final-box {
+        background: linear-gradient(90deg, #b8860b, #f1d36b, #b8860b) !important;
+        color: #111111 !important;
+        border-color: #d4af37 !important;
       }
 
+      input, select, textarea, table, th, td,
+      .summary-box, .item-combo, .item-combo input, .item-combo select {
+        border-color: #d4af37 !important;
+        color: #111111 !important;
+      }
+
+      input, select, textarea,
       .item-combo,
       .item-combo input,
       .item-combo select {
-        background: #fff !important;
-        color: #000 !important;
-        border-color: #000 !important;
+        background: #ffffff !important;
+      }
+
+      .summary-box {
+        background: #fffaf0 !important;
+      }
+
+      table {
+        width: 100% !important;
+        table-layout: fixed !important;
+      }
+
+      th, td {
+        padding: 5px !important;
+        font-size: 11px !important;
+      }
+
+      input, select, textarea {
+        font-size: 11px !important;
+        padding: 6px !important;
+      }
+
+      .summary-grid {
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 6px !important;
+      }
+
+      .summary-box {
+        padding: 7px !important;
+        font-size: 11px !important;
+      }
+
+      .summary-box span {
+        font-size: 14px !important;
+      }
+
+      textarea {
+        min-height: 70px !important;
       }
 
       .btn-add,
