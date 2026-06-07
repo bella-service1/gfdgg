@@ -1,0 +1,260 @@
+body {
+  background: #eee;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  background: white;
+  width: 1000px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.corner-logos {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 999;
+}
+
+.corner-logos img {
+  width: 70px;
+  height: auto;
+  display: block;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+label {
+  font-weight: bold;
+}
+
+input,
+select,
+textarea {
+  padding: 6px;
+  border: 1px solid #777;
+  border-radius: 5px;
+  width: 180px;
+}
+
+.span-box {
+  min-width: 160px;
+  border: 1px solid #777;
+  padding: 6px;
+  display: inline-block;
+  border-radius: 5px;
+  background: #f5f5f5;
+}
+
+textarea {
+  width: 100%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th,
+td {
+  border: 1px solid black;
+  padding: 6px;
+  text-align: center;
+}
+
+h2,
+h3 {
+  background: #cfe6c1;
+  padding: 8px;
+  border-radius: 5px;
+  margin-top: 15px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .corner-logos img {
+    width: 55px;
+  }
+}
+
+@page {
+  size: A4 portrait;
+  margin: 5mm;
+}
+
+@media print {
+  html,
+  body {
+    width: 100%;
+    overflow: visible !important;
+    background: #fff !important;
+  }
+
+  body,
+  .container {
+    margin: 0;
+    width: 100%;
+    box-shadow: none;
+  }
+
+  body {
+    padding: 0 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    font-size: 12px !important;
+  }
+
+  .container {
+    padding: 6px !important;
+    transform: scale(0.50);
+    transform-origin: top center;
+    border-radius: 0 !important;
+  }
+
+  h2,
+  h3 {
+    background: none;
+    padding: 6px 0 !important;
+    margin-top: 8px !important;
+    margin-bottom: 6px !important;
+    font-size: 16px !important;
+    page-break-after: avoid;
+  }
+
+  input,
+  textarea,
+  select {
+    border: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: none;
+    font-size: 12px !important;
+    padding: 4px 5px !important;
+    min-height: auto !important;
+  }
+
+  textarea {
+    min-height: 70px !important;
+  }
+
+  button,
+  .print-btn-container,
+  .corner-logos {
+    display: none;
+  }
+
+  select {
+    background: none;
+  }
+
+  table {
+    page-break-inside: auto;
+    margin-top: 4px !important;
+  }
+
+  th,
+  td {
+    padding: 4px 5px !important;
+    font-size: 11px !important;
+    page-break-inside: avoid;
+  }
+
+  .row {
+    gap: 6px !important;
+    margin-bottom: 6px !important;
+  }
+
+  label {
+    font-size: 12px !important;
+  }
+
+  .item-combo input,
+  .item-combo select {
+    font-size: 11px !important;
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+  }
+}
+
+input:disabled {
+  background: #fff;
+  color: #5c4033;
+  opacity: 1;
+}
+
+/* ===== خانة الصنف مع القائمة داخل نفس الخانة ===== */
+.item-combo {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  border: 1px solid #777;
+  border-radius: 5px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.item-combo input {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  padding: 6px 8px;
+  font-size: 13px;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+}
+
+.item-combo input:focus {
+  outline: none;
+}
+
+.item-combo select {
+  width: 78px;
+  min-width: 78px;
+  padding: 6px 8px;
+  font-size: 13px;
+  border: none;
+  border-right: 1px solid #777;
+  border-radius: 0;
+  background: #fff;
+  color: #5c4033;
+  cursor: pointer;
+
+  /* نخلي المتصفح نفسه يظهر السهم والخيارات طبيعي */
+  appearance: auto !important;
+  -webkit-appearance: menulist !important;
+  -moz-appearance: menulist !important;
+
+  /* مهم عشان ما يختفي النص */
+  text-align: center;
+}
+
+.item-combo select:focus {
+  outline: none;
+}
+
+td .item-combo {
+  max-width: 100%;
+}
