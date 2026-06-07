@@ -114,7 +114,6 @@
     .phone-input {
       direction: ltr;
       text-align: center;
-      letter-spacing: 0;
       font-family: Arial, sans-serif;
     }
 
@@ -223,6 +222,50 @@
       color: #111111;
     }
 
+    .tax-qr-section {
+      margin-top: 18px;
+      padding: 14px;
+      border: 1px solid #d4af37;
+      border-radius: 12px;
+      background: #fffaf0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .tax-details {
+      flex: 1;
+      font-size: 14px;
+      line-height: 2;
+      color: #111111;
+      font-weight: bold;
+    }
+
+    .tax-details span {
+      color: #8a6500;
+      direction: ltr;
+      display: inline-block;
+    }
+
+    .qr-box {
+      width: 120px;
+      min-width: 120px;
+      height: 120px;
+      background: #ffffff;
+      border: 1px solid #d4af37;
+      border-radius: 8px;
+      padding: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #zatcaQr {
+      width: 100px !important;
+      height: 100px !important;
+    }
+
     .print-btn-container {
       margin-top: 16px;
     }
@@ -248,7 +291,6 @@
     @media print {
       html, body {
         width: 210mm !important;
-        min-width: 0 !important;
         margin: 0 !important;
         padding: 0 !important;
         background: #ffffff !important;
@@ -270,13 +312,11 @@
       }
 
       .title-under-header {
-        color: #111111 !important;
         font-size: 22px !important;
         margin: 4px 0 2px !important;
       }
 
       .subtitle {
-        color: #555555 !important;
         font-size: 12px !important;
         margin: 0 0 8px !important;
       }
@@ -284,7 +324,6 @@
       .container {
         width: 100% !important;
         max-width: 100% !important;
-        min-width: 0 !important;
         margin: 0 !important;
         padding: 6px !important;
         border: 1px solid #d4af37 !important;
@@ -300,7 +339,6 @@
       h3, th, .final-box {
         background: linear-gradient(90deg, #b8860b, #f1d36b, #b8860b) !important;
         color: #111111 !important;
-        border-color: #d4af37 !important;
       }
 
       input, select, textarea, table, th, td, .summary-box {
@@ -317,8 +355,6 @@
         text-align: center !important;
         font-size: 10px !important;
         padding: 5px 2px !important;
-        letter-spacing: 0 !important;
-        font-family: Arial, sans-serif !important;
       }
 
       table {
@@ -361,6 +397,31 @@
         min-height: 70px !important;
       }
 
+      .tax-qr-section {
+        margin-top: 8px !important;
+        padding: 8px !important;
+        border: 1px solid #d4af37 !important;
+        background: #fffaf0 !important;
+        page-break-inside: avoid !important;
+      }
+
+      .tax-details {
+        font-size: 10px !important;
+        line-height: 1.7 !important;
+      }
+
+      .qr-box {
+        width: 90px !important;
+        min-width: 90px !important;
+        height: 90px !important;
+        padding: 5px !important;
+      }
+
+      #zatcaQr {
+        width: 78px !important;
+        height: 78px !important;
+      }
+
       .btn-add,
       .btn-delete,
       .print-btn-container {
@@ -386,7 +447,7 @@
 
       <div class="field">
         <label>تاريخ التحرير</label>
-        <input type="date">
+        <input type="date" id="invoiceDate">
       </div>
 
       <div class="field">
@@ -442,20 +503,20 @@
 
     <datalist id="itemsList">
       <option value="تنسيق الكوشة">
-        <option value="تنسيق المدخل">
-          <option value="تنسيق بودر روم">
-            <option value="تنسيق المغاسل">
-               <option value="تنسيق البوابة + إضافة لوقو على البوابة">
-                  <option value="تنسيق طاولات الخدمة">
-                     <option value="تنسيق ممر خارجي">
+      <option value="تنسيق المدخل">
+      <option value="تنسيق بودر روم">
+      <option value="تنسيق المغاسل">
+      <option value="تنسيق البوابة + إضافة لوقو على البوابة">
+      <option value="تنسيق طاولات الخدمة">
+      <option value="تنسيق ممر خارجي">
       <option value="تنسيق مسبح">
-         <option value="مدخل خارجي ">
-            <option value="مدخل داخلي ">
+      <option value="مدخل خارجي">
+      <option value="مدخل داخلي">
       <option value="تنسيق طاولة طعام">
-         <option value="تنسيق اوت دور">
-         <option value="ستاند شبكة ">
+      <option value="تنسيق اوت دور">
+      <option value="ستاند شبكة">
       <option value="تغيير لون ورد">
-        <option value="مانيكان ">
+      <option value="مانيكان">
       <option value="خلفية ستارة / بنر اختياري">
       <option value="تراس حسب التصميم">
       <option value="خلفية كوشة">
@@ -544,13 +605,31 @@
     <h3>الملاحظات</h3>
     <textarea placeholder="اكتب الملاحظات هنا"></textarea>
 
+    <div class="tax-qr-section">
+      <div class="tax-details">
+        <div>اسم المكلف: <span>مؤسسة علامة العناية للتجارة</span></div>
+        <div>الرقم الضريبي: <span>300626863700003</span></div>
+        <div>إجمالي الفاتورة شامل الضريبة: <span id="qrTotalText">0.00 ريال</span></div>
+        <div>قيمة الضريبة: <span id="qrTaxText">0.00 ريال</span></div>
+      </div>
+
+      <div class="qr-box">
+        <canvas id="zatcaQr"></canvas>
+      </div>
+    </div>
+
     <div class="print-btn-container">
-      <button type="button" onclick="window.print()">طباعة / حفظ PDF</button>
+      <button type="button" onclick="preparePrint()">طباعة / حفظ PDF</button>
     </div>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
+
   <script>
     const TAX_RATE = 0.15;
+    const SELLER_NAME = "مؤسسة علامة العناية للتجارة";
+    const VAT_NUMBER = "300626863700003";
+    let qr;
 
     function numbersOptions(max) {
       let options = '<option value="">اختر</option>';
@@ -631,6 +710,52 @@
       document.getElementById("subTotal").textContent = subTotal.toFixed(2);
       document.getElementById("taxAmount").textContent = taxAmount.toFixed(2);
       document.getElementById("finalTotal").textContent = finalTotal < 0 ? "0.00" : finalTotal.toFixed(2);
+
+      document.getElementById("qrTotalText").textContent = totalWithTax.toFixed(2) + " ريال";
+      document.getElementById("qrTaxText").textContent = taxAmount.toFixed(2) + " ريال";
+
+      generateZatcaQr(totalWithTax.toFixed(2), taxAmount.toFixed(2));
+    }
+
+    function toTLV(tag, value) {
+      const encoder = new TextEncoder();
+      const encoded = encoder.encode(value);
+      return [tag, encoded.length, ...encoded];
+    }
+
+    function generateZatcaQr(totalWithTax, taxAmount) {
+      const invoiceDate = document.getElementById("invoiceDate").value;
+      const dateTime = invoiceDate ? new Date(invoiceDate + "T12:00:00").toISOString() : new Date().toISOString();
+
+      const tlvArray = [
+        ...toTLV(1, SELLER_NAME),
+        ...toTLV(2, VAT_NUMBER),
+        ...toTLV(3, dateTime),
+        ...toTLV(4, totalWithTax),
+        ...toTLV(5, taxAmount)
+      ];
+
+      let binary = "";
+      tlvArray.forEach(byte => binary += String.fromCharCode(byte));
+      const base64 = btoa(binary);
+
+      if (!qr) {
+        qr = new QRious({
+          element: document.getElementById("zatcaQr"),
+          size: 100,
+          value: base64,
+          level: "M",
+          background: "white",
+          foreground: "black"
+        });
+      } else {
+        qr.value = base64;
+      }
+    }
+
+    function preparePrint() {
+      calculateGrandTotal();
+      setTimeout(() => window.print(), 300);
     }
 
     window.onload = function () {
@@ -650,6 +775,8 @@
 
         dateInputs[0].parentNode.appendChild(hiddenInput);
       }
+
+      calculateGrandTotal();
     };
   </script>
 
