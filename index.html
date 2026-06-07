@@ -6,9 +6,7 @@
   <title>moon-light</title>
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       font-family: Arial, sans-serif;
@@ -18,66 +16,28 @@
       color: #5c4033;
     }
 
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    /* ===== الهيدر ===== */
     .hero {
       position: relative;
       width: 100%;
-      height: 210px;
+      height: 150px;
       overflow: hidden;
       margin-bottom: 8px;
-    }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
       background: #e9dfd2;
       border-bottom-left-radius: 28px;
       border-bottom-right-radius: 28px;
-      overflow: hidden;
     }
 
-    .hero-bg::after {
+    .hero::after {
       content: "";
       position: absolute;
       left: -8%;
       bottom: -18px;
       width: 116%;
-      height: 120px;
+      height: 100px;
       background: #1f2747;
       border-top-left-radius: 55% 100%;
       border-top-right-radius: 55% 100%;
       transform: rotate(-4deg);
-      transform-origin: center;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding-top: 8px;
-    }
-
-    .hero-logo {
-      width: 200px;
-      max-width: 72%;
-      height: auto;
-      display: block;
-      background: #e9dfd2;
-      padding: 12px 18px;
-      border-radius: 10px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10);
-      animation: none !important;
-      transform: none !important;
-      transition: none !important;
     }
 
     .title-under-header {
@@ -88,7 +48,6 @@
       margin: 10px 12px 18px;
     }
 
-    /* ===== الحاوية ===== */
     .container {
       width: 1100px;
       margin: 0 auto 24px;
@@ -98,7 +57,7 @@
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
     }
 
-    h2, h3 {
+    h3 {
       background: #f5e9e2;
       color: #5c4033;
       padding: 12px 16px;
@@ -107,7 +66,6 @@
       font-size: 22px;
     }
 
-    /* ===== الفورم ===== */
     .grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -128,10 +86,7 @@
       line-height: 1.5;
     }
 
-    input,
-    select,
-    textarea,
-    button {
+    input, select, textarea, button {
       width: 100%;
       box-sizing: border-box;
       padding: 12px 10px;
@@ -142,17 +97,11 @@
       color: #5c4033;
     }
 
-    input::placeholder,
-    textarea::placeholder {
-      color: #9f8b80;
-    }
-
     textarea {
       resize: vertical;
       min-height: 120px;
     }
 
-    /* ===== الجدول ===== */
     .table-wrap {
       width: 100%;
       overflow: visible;
@@ -166,8 +115,7 @@
       background: #fff;
     }
 
-    th,
-    td {
+    th, td {
       border: 1px solid #d9c8bc;
       padding: 10px;
       text-align: center;
@@ -180,9 +128,7 @@
       font-weight: bold;
     }
 
-    td input,
-    td select,
-    td button {
+    td input, td select, td button {
       margin: 0;
       font-size: 14px;
       padding: 10px 8px;
@@ -190,10 +136,6 @@
 
     td input[type="number"] {
       min-width: 140px;
-    }
-
-    td select {
-      min-width: 90px;
     }
 
     .actions {
@@ -245,7 +187,6 @@
       font-weight: bold;
     }
 
-    /* ===== خانة الصنف مع القائمة داخل نفس الخانة ===== */
     .item-combo {
       display: flex;
       align-items: stretch;
@@ -265,16 +206,11 @@
       border: none;
       border-radius: 0;
       background: transparent;
-      box-shadow: none;
-    }
-
-    .item-combo input:focus {
-      outline: none;
     }
 
     .item-combo select {
-      width: 78px;
-      min-width: 78px;
+      width: 95px;
+      min-width: 95px;
       padding: 10px 8px;
       font-size: 13px;
       border: none;
@@ -283,29 +219,8 @@
       background: #fff;
       color: #5c4033;
       cursor: pointer;
-      appearance: auto !important;
-      -webkit-appearance: menulist !important;
-      -moz-appearance: menulist !important;
-      text-align: center;
-      box-shadow: none;
     }
 
-    .item-combo select:focus {
-      outline: none;
-    }
-
-    td .item-combo {
-      max-width: 100%;
-    }
-
-    /* فقط للأجهزة المتوسطة مثل التابلت */
-    @media (max-width: 1100px) {
-      .container {
-        width: 1050px;
-      }
-    }
-
-    /* ===== الطباعة ===== */
     @page {
       size: A4 portrait;
       margin: 8mm;
@@ -327,12 +242,7 @@
 
       .hero {
         margin-bottom: 6px !important;
-        height: 170px !important;
-        page-break-inside: avoid;
-      }
-
-      .hero-logo {
-        width: 170px !important;
+        height: 120px !important;
       }
 
       .title-under-header {
@@ -352,19 +262,6 @@
         transform-origin: top center;
       }
 
-      h2, h3 {
-        page-break-after: avoid;
-      }
-
-      table {
-        width: 100% !important;
-        page-break-inside: auto;
-      }
-
-      tr, td, th {
-        page-break-inside: avoid;
-      }
-
       .btn-add,
       .btn-delete,
       .print-btn-container {
@@ -373,16 +270,12 @@
     }
   </style>
 </head>
+
 <body>
 
-  <header class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-content">
-      <img src="logo-light.png" alt="Bella Logo" class="hero-logo">
-    </div>
-  </header>
+  <header class="hero"></header>
 
-  <div class="title-under-header">MOON LIGHT </div>
+  <div class="title-under-header">MOON LIGHT</div>
 
   <div class="container">
     <div class="grid">
@@ -485,7 +378,11 @@
     function fillItem(selectEl) {
       const row = selectEl.closest("tr");
       const input = row.querySelector(".item-input");
-      if (selectEl.value) {
+
+      if (selectEl.value === "أخرى") {
+        input.value = "";
+        input.focus();
+      } else if (selectEl.value) {
         input.value = selectEl.value;
       }
     }
@@ -497,13 +394,36 @@
             <div class="item-combo">
               <select onchange="fillItem(this)">
                 <option value="">اختر</option>
-                <option value="مشرفة عامة">مشرفة عامة</option>
-                <option value="مشرفة عبايات">مشرفة عبايات</option>
-                <option value="قهوجية / قهوجي">قهوجية / قهوجي</option>
-                <option value="مساعدة قهوجية">مساعدة قهوجية</option>
-                <option value="صباب / صبابات">صباب / صبابات</option>
-                <option value="عاملة تقديم خدمة / عامل تقديم خدمة">عاملة تقديم خدمة / عامل تقديم خدمة</option>
-                <option value="عاملة نظافة / عامل نظافة">عاملة نظافة / عامل نظافة</option>
+                <option value="كوشة">كوشة</option>
+                <option value="مدخل">مدخل</option>
+                <option value="طاولات استقبال">طاولات استقبال</option>
+                <option value="تنسيق طاولات الخدمة">تنسيق طاولات الخدمة</option>
+                <option value="طاولات خدمة">طاولات خدمة</option>
+                <option value="خداديات">خداديات</option>
+                <option value="بوفات">بوفات</option>
+                <option value="ستاند عبايات">ستاند عبايات</option>
+                <option value="تنسيق ممر خارجي">تنسيق ممر خارجي</option>
+                <option value="تنسيق مسبح">تنسيق مسبح</option>
+                <option value="تنسيق طاولة طعام">تنسيق طاولة طعام</option>
+                <option value="شاشة استقبال">شاشة استقبال</option>
+                <option value="قهوجية">قهوجية</option>
+                <option value="صبابة">صبابة</option>
+                <option value="عاملة ركن عطور">عاملة ركن عطور</option>
+                <option value="عاملة ركن قهوة">عاملة ركن قهوة</option>
+                <option value="ستيج">ستيج</option>
+                <option value="ممر">ممر</option>
+                <option value="ركن عطور">ركن عطور</option>
+                <option value="ركن قهوة">ركن قهوة</option>
+                <option value="سجاد أحمر">سجاد أحمر</option>
+                <option value="سجاد موف">سجاد موف</option>
+                <option value="ورد أحمر">ورد أحمر</option>
+                <option value="ورد أبيض">ورد أبيض</option>
+                <option value="ورد بنفسجي">ورد بنفسجي</option>
+                <option value="ورد وردي">ورد وردي</option>
+                <option value="ورد سماوي">ورد سماوي</option>
+                <option value="قهوجي">قهوجي</option>
+                <option value="صباب">صباب</option>
+                <option value="أخرى">أخرى</option>
               </select>
               <input type="text" class="item-input" placeholder="اختر أو اكتب الصنف">
             </div>
@@ -574,5 +494,6 @@
       dateInput.parentNode.appendChild(hiddenInput);
     };
   </script>
+
 </body>
 </html>
