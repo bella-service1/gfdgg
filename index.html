@@ -280,10 +280,16 @@
         border-bottom: 2px solid #d4af37 !important;
       }
 
-      .hero::after {
-        display: block !important;
-        background: linear-gradient(90deg, #b8860b, #f1d36b, #b8860b) !important;
-      }
+    .hero::after {
+  content: "";
+  position: absolute;
+  left: -5%;
+  bottom: 15px;
+  width: 110%;
+  height: 55px;
+  background: linear-gradient(90deg, #b8860b, #f1d36b, #b8860b);
+  transform: rotate(-3deg);
+}
 
       .title-under-header {
         font-size: 22px !important;
@@ -389,11 +395,14 @@
       }
     }
   .logo-circle{
-  width:180px;
-  height:180px;
-  margin:-120px auto 10px;
+  width:150px;
+  height:150px;
+  margin:-95px auto 10px;
   position:relative;
   z-index:999;
+  background:#fff;
+  border-radius:50%;
+  padding:12px;
 }
 
 .logo-circle img{
