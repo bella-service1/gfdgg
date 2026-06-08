@@ -111,6 +111,13 @@
       color: #111111;
     }
 
+    .english-input {
+      direction: ltr;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+    }
+
     .phone-input {
       direction: ltr;
       text-align: center;
@@ -317,7 +324,8 @@
         background: #ffffff !important;
       }
 
-      .phone-input {
+      .phone-input,
+      .english-input {
         direction: ltr !important;
         text-align: center !important;
         font-size: 10px !important;
@@ -393,13 +401,18 @@
   <div class="container">
     <div class="grid">
       <div class="field">
+        <label>رقم الفاتورة</label>
+        <input type="text" id="invoiceNumber" class="english-input" readonly>
+      </div>
+
+      <div class="field">
         <label>العنوان</label>
-        <input type="text" placeholder=": ">
+        <input type="text" placeholder="مثال: رسال">
       </div>
 
       <div class="field">
         <label>تاريخ التحرير</label>
-        <input type="date" id="invoiceDate">
+        <input type="text" id="invoiceDate" class="english-input" readonly>
       </div>
 
       <div class="field">
@@ -437,7 +450,7 @@
 
       <div class="field">
         <label>تاريخ الحفلة</label>
-        <input type="date">
+        <input type="date" class="english-input" lang="en-GB">
       </div>
 
       <div class="field">
@@ -558,6 +571,31 @@
   </div>
 
   <script>
+    function formatInvoiceNumber(num) {
+      return "ML-" + String(num).padStart(5, "0");
+    }
+
+    function loadInvoiceNumber() {
+      const savedNumber = parseInt(localStorage.getItem("moonLightInvoiceNumber") || "1");
+      document.getElementById("invoiceNumber").value = formatInvoiceNumber(savedNumber);
+    }
+
+    function increaseInvoiceNumber() {
+      let currentNumber = parseInt(localStorage.getItem("moonLightInvoiceNumber") || "1");
+      currentNumber++;
+      localStorage.setItem("moonLightInvoiceNumber", currentNumber);
+      document.getElementById("invoiceNumber").value = formatInvoiceNumber(currentNumber);
+    }
+
+    function formatEnglishDate(date) {
+      return date.toLocaleDateString("en-GB", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+        numberingSystem: "latn"
+      });
+    }
+
     function numbersOptions(max) {
       let options = '<option value="">اختر</option>';
       for (let i = 1; i <= max; i++) {
@@ -638,26 +676,19 @@
 
     function preparePrint() {
       calculateGrandTotal();
-      setTimeout(() => window.print(), 300);
+
+      setTimeout(() => {
+        window.print();
+        increaseInvoiceNumber();
+      }, 300);
     }
 
     window.onload = function () {
       addRow();
+      loadInvoiceNumber();
 
-      const today = new Date().toISOString().split('T')[0];
-      const dateInputs = document.querySelectorAll('input[type="date"]');
-
-      if (dateInputs[0]) {
-        dateInputs[0].value = today;
-        dateInputs[0].disabled = true;
-
-        const hiddenInput = document.createElement("input");
-        hiddenInput.type = "hidden";
-        hiddenInput.name = "edit_date";
-        hiddenInput.value = today;
-
-        dateInputs[0].parentNode.appendChild(hiddenInput);
-      }
+      const today = new Date();
+      document.getElementById("invoiceDate").value = formatEnglishDate(today);
 
       calculateGrandTotal();
     };
