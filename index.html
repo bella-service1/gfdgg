@@ -450,7 +450,7 @@
 
       <div class="field">
         <label>تاريخ الحفلة</label>
-        <input type="date" class="english-input" lang="en-GB">
+        <input type="date" class="english-input" lang="en-US">
       </div>
 
       <div class="field">
@@ -571,9 +571,9 @@
   </div>
 
   <script>
-    function formatInvoiceNumber(num) {
-      return "ML-" + String(num).padStart(5, "0");
-    }
+   function formatInvoiceNumber(num) {
+  return String(num).padStart(5, "0");
+}
 
     function loadInvoiceNumber() {
       const savedNumber = parseInt(localStorage.getItem("moonLightInvoiceNumber") || "1");
@@ -587,14 +587,13 @@
       document.getElementById("invoiceNumber").value = formatInvoiceNumber(currentNumber);
     }
 
-    function formatEnglishDate(date) {
-      return date.toLocaleDateString("en-GB", {
-        day: "2-digit",
-        month: "short",
-        year: "numeric",
-        numberingSystem: "latn"
-      });
-    }
+   function formatEnglishDate(date) {
+  const day = String(date.getDate()).padStart(2, "0");
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const year = date.getFullYear();
+
+  return `${day}/${month}/${year}`;
+}
 
     function numbersOptions(max) {
       let options = '<option value="">اختر</option>';
