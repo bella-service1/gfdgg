@@ -120,77 +120,6 @@
       min-height: 120px;
     }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-      background: #ffffff;
-      table-layout: fixed;
-    }
-
-    .item-col { width: 40%; }
-    .qty-col { width: 15%; }
-    .price-col { width: 15%; }
-    .total-col { width: 18%; }
-    .delete-col { width: 12%; }
-
-    th, td {
-      border: 1px solid #7ec8e3;
-      padding: 10px;
-      text-align: center;
-      vertical-align: middle;
-    }
-
-    th {
-      background: linear-gradient(90deg, #5dade2, #bdefff, #5dade2);
-      color: #111111;
-      font-weight: bold;
-    }
-
-    td input, td select, td button {
-      margin: 0;
-      font-size: 14px;
-      padding: 10px 8px;
-    }
-
-    .qty-select {
-      width: 95px !important;
-      min-width: 95px !important;
-      text-align: center !important;
-      font-weight: bold;
-      font-size: 15px;
-      padding: 10px 4px !important;
-      margin: auto !important;
-      display: block;
-    }
-
-    .actions {
-      display: flex;
-      gap: 10px;
-      margin-top: 14px;
-      flex-wrap: wrap;
-    }
-
-    .btn-add {
-      width: auto;
-      min-width: 150px;
-      background: linear-gradient(90deg, #5dade2, #bdefff, #5dade2);
-      color: #111111;
-      border: none;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    .btn-delete {
-      width: auto;
-      padding: 8px 12px;
-      cursor: pointer;
-      background: #7a1f1f;
-      color: white;
-      border: none;
-      font-weight: bold;
-    }
-
     .summary-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -236,11 +165,6 @@
       border: none;
       cursor: pointer;
       font-weight: bold;
-    }
-
-    .item-input {
-      width: 100%;
-      text-align: center;
     }
 
     @page {
@@ -297,12 +221,12 @@
         gap: 6px !important;
       }
 
-      h3, th, .final-box {
+      h3, .final-box {
         background: linear-gradient(90deg, #5dade2, #bdefff, #5dade2) !important;
         color: #111111 !important;
       }
 
-      input, select, textarea, table, th, td, .summary-box {
+      input, select, textarea, .summary-box {
         border-color: #7ec8e3 !important;
         color: #111111 !important;
       }
@@ -318,35 +242,9 @@
         padding: 5px 2px !important;
       }
 
-      table {
-        width: 100% !important;
-        table-layout: fixed !important;
-      }
-
-      .item-col { width: 40% !important; }
-      .qty-col { width: 15% !important; }
-      .price-col { width: 15% !important; }
-      .total-col { width: 18% !important; }
-      .delete-col { width: 12% !important; }
-
-      th, td {
-        padding: 5px !important;
-        font-size: 11px !important;
-      }
-
       input, select, textarea {
         font-size: 11px !important;
         padding: 6px !important;
-      }
-
-      .qty-select {
-        width: 80px !important;
-        min-width: 80px !important;
-        font-size: 11px !important;
-        padding: 5px 2px !important;
-        text-align: center !important;
-        margin: auto !important;
-        display: block !important;
       }
 
       .summary-grid {
@@ -368,8 +266,6 @@
         min-height: 70px !important;
       }
 
-      .btn-add,
-      .btn-delete,
       .print-btn-container {
         display: none !important;
       }
@@ -384,6 +280,7 @@
   <div class="title-under-header">منتجع أورلين</div>
 
   <div class="container">
+
     <div class="grid">
 
       <div class="field">
@@ -432,91 +329,13 @@
 
     </div>
 
-    <h3>بيانات الفاتورة</h3>
-
-    <datalist id="itemsList">
-      <option value="تنسيق الكوشة">
-      <option value="تنسيق المدخل">
-      <option value="تنسيق بودر روم">
-      <option value="تنسيق المغاسل">
-      <option value="تنسيق البوابة + إضافة لوقو على البوابة">
-      <option value="تنسيق طاولات الخدمة">
-      <option value="تنسيق ممر خارجي">
-      <option value="تنسيق مسبح">
-      <option value="مدخل خارجي">
-      <option value="مدخل داخلي">
-      <option value="تنسيق طاولة طعام">
-      <option value="تنسيق اوت دور">
-      <option value="ستاند شبكة">
-      <option value="تغيير لون ورد">
-      <option value="مانيكان">
-      <option value="خلفية ستارة / بنر اختياري">
-      <option value="تراس حسب التصميم">
-      <option value="خلفية كوشة">
-      <option value="بوفات VIP">
-      <option value="طاولة الحلويات والعلك">
-      <option value="طاولات خدمة VIP">
-      <option value="طاولات استقبال">
-      <option value="طاولات خدمة">
-      <option value="خداديات">
-      <option value="بوفات">
-      <option value="ستاند عبايات">
-      <option value="شاشة استقبال">
-      <option value="قهوجية">
-      <option value="صبابة">
-      <option value="عاملة ركن عطور">
-      <option value="عاملة ركن قهوة">
-      <option value="ستيج">
-      <option value="ممر">
-      <option value="ركن عطور">
-      <option value="ركن قهوة">
-      <option value="سجاد أحمر">
-      <option value="سجاد موف">
-      <option value="ورد أحمر">
-      <option value="ورد أبيض">
-      <option value="ورد بنفسجي">
-      <option value="ورد وردي">
-      <option value="ورد سماوي">
-      <option value="قهوجي">
-      <option value="صباب">
-      <option value="مساعدة قهوجية">
-      <option value="عاملة خدمة">
-      <option value="عامل نظافة">
-      <option value="عاملة نظافة">
-      <option value="مشرفة عامة">
-      <option value="مشرفة عبايات">
-    </datalist>
-
-    <table>
-      <colgroup>
-        <col class="item-col">
-        <col class="qty-col">
-        <col class="price-col">
-        <col class="total-col">
-        <col class="delete-col">
-      </colgroup>
-
-      <thead>
-        <tr>
-          <th>الصنف</th>
-          <th>العدد</th>
-          <th>السعر</th>
-          <th>الإجمالي</th>
-          <th>حذف</th>
-        </tr>
-      </thead>
-
-      <tbody id="tableBody"></tbody>
-    </table>
-
-    <div class="actions">
-      <button type="button" class="btn-add" onclick="addRow()">+ إضافة سطر</button>
-    </div>
+    <h3>الملخص المالي</h3>
 
     <div class="summary-grid">
-      <div class="summary-box">
-        الإجمالي
-        <span><span id="subTotal">0</span> ريال</span>
+
+      <div class="summary-box deposit-box">
+        المبلغ
+        <input type="number" id="mainAmount" min="0" value="0" oninput="calculateGrandTotal()">
       </div>
 
       <div class="summary-box deposit-box">
@@ -528,6 +347,7 @@
         المتبقي بعد العربون
         <span><span id="finalTotal">0</span> ريال</span>
       </div>
+
     </div>
 
     <h3>الملاحظات</h3>
@@ -536,85 +356,17 @@
     <div class="print-btn-container">
       <button type="button" onclick="preparePrint()">طباعة / حفظ PDF</button>
     </div>
+
   </div>
 
   <script>
-    function numbersOptions(max) {
-      let options = '<option value="">اختر</option>';
-      for (let i = 1; i <= max; i++) {
-        options += `<option value="${i}">${i}</option>`;
-      }
-      return options;
-    }
-
-    function rowHtml() {
-      return `
-        <tr>
-          <td>
-            <input 
-              type="text" 
-              class="item-input" 
-              list="itemsList" 
-              placeholder="اكتب أو اختر الصنف"
-            >
-          </td>
-
-          <td>
-            <select class="qty-select" onchange="calculateRow(this)">
-              ${numbersOptions(50)}
-            </select>
-          </td>
-
-          <td>
-            <input type="number" min="0" placeholder="السعر" oninput="calculateRow(this)">
-          </td>
-
-          <td class="rowTotal">0</td>
-
-          <td>
-            <button type="button" class="btn-delete" onclick="removeRow(this)">✖</button>
-          </td>
-        </tr>
-      `;
-    }
-
-    function addRow() {
-      document.getElementById("tableBody").insertAdjacentHTML("beforeend", rowHtml());
-    }
-
-    function removeRow(button) {
-      const row = button.closest("tr");
-      if (row) {
-        row.remove();
-        calculateGrandTotal();
-      }
-    }
-
-    function calculateRow(element) {
-      const row = element.closest("tr");
-      if (!row) return;
-
-      const qty = Number(row.querySelector(".qty-select").value || 0);
-      const price = Number(row.querySelector('input[type="number"]').value || 0);
-      const total = qty * price;
-
-      row.querySelector(".rowTotal").textContent = isNaN(total) ? 0 : total.toFixed(2);
-      calculateGrandTotal();
-    }
-
     function calculateGrandTotal() {
-      let subTotal = 0;
-
-      document.querySelectorAll(".rowTotal").forEach(cell => {
-        const val = Number(cell.textContent);
-        if (!isNaN(val)) subTotal += val;
-      });
-
+      const amount = Number(document.getElementById("mainAmount").value || 0);
       const deposit = Number(document.getElementById("depositAmount").value || 0);
-      const finalTotal = subTotal - deposit;
+      const finalTotal = amount - deposit;
 
-      document.getElementById("subTotal").textContent = subTotal.toFixed(2);
-      document.getElementById("finalTotal").textContent = finalTotal < 0 ? "0.00" : finalTotal.toFixed(2);
+      document.getElementById("finalTotal").textContent =
+        finalTotal < 0 ? "0.00" : finalTotal.toFixed(2);
     }
 
     function preparePrint() {
@@ -626,8 +378,6 @@
     }
 
     window.onload = function () {
-      addRow();
-
       const today = new Date();
       const year = today.getFullYear();
       const month = String(today.getMonth() + 1).padStart(2, "0");
