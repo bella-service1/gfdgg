@@ -74,7 +74,7 @@
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(6, minmax(0, 1fr));
       gap: 14px 16px;
       align-items: center;
       margin-bottom: 16px;
@@ -293,7 +293,7 @@
       }
 
       .grid {
-        grid-template-columns: repeat(2, 1fr) !important;
+        grid-template-columns: repeat(6, 1fr) !important;
         gap: 6px !important;
       }
 
@@ -374,24 +374,6 @@
         display: none !important;
       }
     }
-
-    .logo-circle {
-      width: 150px;
-      height: 150px;
-      margin: -95px auto 10px;
-      position: relative;
-      z-index: 999;
-      background: #fff;
-      border-radius: 50%;
-      padding: 12px;
-    }
-
-    .logo-circle img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-    }
   </style>
 </head>
 
@@ -399,17 +381,19 @@
 
   <header class="hero"></header>
 
-  <div class="logo-circle">
-    <img src="logo.png" alt="منتجع أورلين">
-  </div>
-
   <div class="title-under-header">منتجع أورلين</div>
 
   <div class="container">
     <div class="grid">
+
       <div class="field">
         <label>تاريخ التحرير</label>
         <input type="date" id="invoiceDate" class="english-input" lang="en-US">
+      </div>
+
+      <div class="field">
+        <label>تاريخ الحجز</label>
+        <input type="date" class="english-input" lang="en-US">
       </div>
 
       <div class="field">
@@ -430,6 +414,22 @@
           <option>أخرى</option>
         </select>
       </div>
+
+      <div class="field">
+        <label>اسم العميل</label>
+        <input type="text" placeholder="اسم العميل">
+      </div>
+
+      <div class="field">
+        <label>رقم جوال العميل</label>
+        <input type="tel" class="english-input" placeholder="05xxxxxxxx">
+      </div>
+
+      <div class="field">
+        <label>رقم هوية العميل</label>
+        <input type="text" class="english-input" placeholder="رقم الهوية">
+      </div>
+
     </div>
 
     <h3>بيانات الفاتورة</h3>
